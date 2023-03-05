@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.26 32-bit) (preloaded format=pdflatex 2022.11.7)  3 MAR 2023 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.26 32-bit) (preloaded format=pdflatex 2022.11.7)  5 MAR 2023 16:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,26 +297,107 @@ File: fig3.png Graphic file (type png)
 <use fig3.png>
 Package pdftex.def Info: fig3.png  used on input line 74.
 (pdftex.def)             Requested size: 284.52756pt x 83.05276pt.
- [3 <./fig3.png>] (lab1.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
+
+ []
+
+<fig4.png, id=16, 609.77812pt x 197.23688pt>
+File: fig4.png Graphic file (type png)
+<use fig4.png>
+Package pdftex.def Info: fig4.png  used on input line 94.
+(pdftex.def)             Requested size: 284.52756pt x 92.03621pt.
+[3 <./fig3.png>]
+Overfull \hbox (18.33882pt too wide) in paragraph at lines 111--112
+[]\OT4/cmr/m/n/12 Brak scen-tra-li-zo-wa-nej ad-mi-ni-stra-cji (brak cen-tral-n
+e-go urz¡dzenia-serwera). 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+
+ []
+
+[4 <./fig4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 163--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+
+ []
+
+<fig5.png, id=26, 613.54219pt x 394.47375pt>
+File: fig5.png Graphic file (type png)
+<use fig5.png>
+Package pdftex.def Info: fig5.png  used on input line 173.
+(pdftex.def)             Requested size: 256.0748pt x 164.64253pt.
+<fig6.png, id=27, 616.55344pt x 420.82219pt>
+File: fig6.png Graphic file (type png)
+<use fig6.png>
+Package pdftex.def Info: fig6.png  used on input line 181.
+(pdftex.def)             Requested size: 256.0748pt x 174.78563pt.
+[6 <./fig5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+
+ []
+
+[7 <./fig6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+[8] [9] (lab1.aux) ) 
 Here is how much of TeX's memory you used:
- 3288 strings out of 475380
- 52342 string characters out of 2776772
- 396529 words of memory out of 3000000
- 24660 multiletter control sequences out of 15000+600000
+ 3309 strings out of 475380
+ 52683 string characters out of 2776772
+ 397529 words of memory out of 3000000
+ 24678 multiletter control sequences out of 15000+600000
  472422 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,6n,76p,379b,241s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\Dawid\AppData\Local\MiKTeX\fonts/pk/lj
-four/jknappen/ec/dpi600\tcrm1200.pk>{C:/Users/Dawid/AppData/Local/Programs/MiKT
-eX/fonts/enc/dvips/pl/plit.enc}{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fo
-nts/enc/dvips/pl/plrm.enc}<C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/pl/plbx12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/pl/plr12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/pl/plr17.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/pl/plti12.pfb>
-Output written on lab1.pdf (3 pages, 62855 bytes).
+ 68i,7n,76p,485b,241s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Dawid\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcrm1200.pk>{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/e
+nc/dvips/pl/plit.enc}{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/enc/dv
+ips/pl/plrm.enc}<C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/pl/plbx12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/pl/plr12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/pl/plr17.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+pl/plti12.pfb>
+Output written on lab1.pdf (9 pages, 207653 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

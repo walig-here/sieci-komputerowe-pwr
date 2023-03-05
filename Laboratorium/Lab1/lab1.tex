@@ -80,5 +80,149 @@ Do komendy \italic{tracert} można dodać parametr zmieniający jej działanie:
 	\item \italic{-d} - wyłącza konwersję adresów na nazwy hostów (DNS).
 	\item \italic{-h [ilość]} - ustala maksymalną ilość skoków, z których ma składać się ścieżka
 \end{itemize}
+
+\h{Host:}
+Każde urządzenie podłączone do sieci, które bierze bezpośredni udział w komunikacji sieciowej (jest urządzeniem końcowym). Każdy host obecny ma przypisany numer identyfikacyjny, adres IP (zgodny ze schematem adresowania protokołu IP).\\
+
+\h{Serwery i klienci}
+Wśród hostów można wyróżnić urządzenia będące serwerami i klientami. Serwery posiadają oprogramowanie umożliwiające im dostarczanie informacji klientom danej usługi sieciowej. Urządzenia-klienci posiadają oprogramowanie do wysyłania żądań i wyświetlania danych przychodzących z serwerów. Oczywiście nic nie stoi na przeszkodzie, aby urządzenie było jednocześnie klientem jak i serwerem (chodź zazwyczaj taka sytuacja nie występuje).\\
+
+\h{Sieć peer-to-peer:}
+O sieci peer-to-peer mówimy, gdy występujące w sieci hosty pełnią rolę zarówno klienta jak i serwera. Tego typu sieci występują chociażby w domach czy małych firmach.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{fig4.png}
+	\caption{Schemat obrazujący sieć peer-to-peer.}
+\end{figure}
+
+\noindent
+Plusami sieci pper-to-peer są:
+\begin{itemize}
+	\item Łatwa konfiguracja
+	\item Mała złożoność
+	\item Niższy koszt ze względu na brak wymogu zakupu dedykowanych urządzeń sieciowych i serwerów
+	\item Duża użyteczność w wypadku prostych zadań jak współdzielenie plików i urządzeń wyjścia między urządzeniami
+\end{itemize}
+\vspace{5mm}
+
+\noindent
+Minusami sieci peer-to-peer są:
+\begin{itemize}
+	\item Brak scentralizowanej administracji (brak centralnego urządzenia-serwera).
+	\item Mniejsze bezpieczeństwo 
+	\item Trudna skalowalność
+	\item Zmniejszona wydajność ze względu na fakt, że każde urządzenie musi wykonywać zadania hosta i serwera
+\end{itemize}
+\vspace{5mm}
+
+\h{Urządzenia pośredniczące:}
+Urządzenia łączące poszczególne urządzenia końcowe z siecią. Ponadto mogą łączyć wiele pojedynczych sieci. Tworzą tym samym intersieć. Urządzenia pośredniczące używają adresy urządzeń końcowych oraz informacje nt połączeń wewnątrz sieci w celu określenia ścieżki, którą powinny obrać wiadomości transmitowane w sieci.\\
+
+\noindent
+Odpowiedzialnością urządzeń pośredniczących jest:
+\begin{itemize}
+	\item Regeneracje i retransmisja sygnałów komunikacyjnych (zawsze).
+	\item Utrzymywanie danych nt istniejących w sieci ścieżkach transmisyjnych
+	\item Powiadamianie innych urządzeń o błędach i awariach w komunikacji
+	\item Przekierowywanie danych alternatywną ścieżką w wypadku awarii łącza
+	\item Klasyfikacja i kierowanie wiadomościami zgodnie z priorytetami
+	\item Blokowanie lub umożliwianie przepływu danych zgodnie z ustawieniami bezpieczeństwa
+\end{itemize}
+\vspace{5mm}
+
+\noindent
+Urządzeniami pośredniczącymi są:
+\begin{itemize}
+	\item Routery przewodowe lub bezprzewodowe
+	\item Przełączniki (switch) sieci LAN
+	\item Przełączniki wielowarstwowe 
+	\item Zapory ogniowe (firewall)
+\end{itemize}
+\vspace{5mm}
+
+\h{Medium sieciowe:}
+Komunikację miedzy urządzeniami w sieci zapewniają media sieciowe. To właśnie one tworzą kanały, które służą do przesyłania wiadomości od źródła do celu. W nowoczesnych sieciach komunikacja odbywa się za pomocą mediów takich jak:
+\begin{itemize}
+	\item \italic{Przewody metalowe} - przesył danych w formie impulsów elektrycznych
+	\item \italic{Kable światłowodowe} - przesył danych w formie impulsów świetlnych
+	\item \italic{Transmisja bezprzewodowa} - przesył danych za pomocą fal elektromagnetycznych
+\end{itemize}
+\vspace{5mm}
+
+Kryteria doboru medium sieciowego to:
+\begin{itemize}
+	\item Odległość na jaką medium może poprawnie transmitować sygnał
+	\item Otoczenie, w którym medium ma zostać zainstalowane
+	\item Ilość danych, którą medium ma transmitować i prędkość tej transmisji 
+	\item Koszt danego medium i jego instalacji
+\end{itemize}
+
+\h{Karta sieciowa:}
+Moduł umożliwiające fizyczne połączenie urządzenia końcowego z siecią.\\
+
+\h{Port fizyczny:}
+Wtyczka/gniazdo w urządzeniu sieciowym, do którego podłączone jest medium łączące to urządzenie z innym urządzeniem sieciowym.\\
+
+\h{Interfejs:}
+Specjalny port w urządzeniu sieciowym, który zapewnia połączenie z innymi sieciami. W routerach (urządzeniach służących do łączenia sieci) porty nazywamy interfejsami sieciowymi.\\
+
+\h{Schemat topologii fizycznej:}
+Schemat przedstawiający fizyczne położenie urządzeń i mediów w sieci.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=9cm]{fig5.png}
+	\caption{Schemat przedstawiający topologię fizyczną sieci.}
+\end{figure}
+
+\h{Schemat topologii logicznej:}
+Schemat przedstawiający urządzenia, porty i schemat adresowania sieci.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=9cm]{fig6.png}
+	\caption{Schemat przedstawiający topologię logiczną sieci.}
+\end{figure}
+\vspace{5mm}
+
+\h{Sieć LAN:}
+Sieć lokalna (Local Area Network), rozpościerająca się na małym obszarze geograficznym. Może być to np. sieć łącząca urządzenia na obszarze jednego gospodarstwa domowego. Jest ona administrowana przez jedną organizację/osobę. Zapewnia ona wysoką przepustowość do wewnętrznych urządzeń sieciowych.\\
+
+\h{Sieć WAN:}
+Sieć Wide Area Network, rozpościerająca się na dużym obszarze geograficznym. Jest to sieć łącząca ze sobą poszczególne sieci LAN. Jest administrowana przez kilku usługodawców internetowych (ISP, Internet Service Provider). Typowo zapewniają wolne połączenie między połączonymi przez WAN sieciami LAN.\\
+
+\h{Internet:}
+Ogólnoświatowy zbiór połączonych ze sobą sieci. Może być zinterpretowany jako grupa połączony ze sobą sieci LAN i WAN. Internet nie jest niczyją własnością. Istnieją jednak organizacje, które zajmują się monitorowaniem struktury i standardów globalnej sieci.\\
+
+\h{Intranet:}
+Prywatne połączenie sieciowe należące do jakiejś organizacji. Dostępny tylko dla członków tej organizacji lub innych osób, które uzyskały autoryzację.\\
+
+\h{Ekstranet:}
+Siec wykorzystywana przez organizację w celu zapewnienia dostępu swoim współpracownikom czy też klientom do swoich danych. Przykładem jest ekstranet szpitala, który zapewnia dostęp do systemu rezerwacji wizyt online dla pacjentów.\\
+
+\h{Połączenie internetowe dla osób prywatnych i małych firm:}
+W wypadku gospodarstw domowych i małych firm połączenie z internetem odbywa się za pomocą:
+\begin{itemize}
+	\item \italic{Łącza kablowego} - połączenie przez kabel telewizji kablowej o wysokiej przepustowości i dostępności.
+	\item \italic{DSL (Digital Subscriber Line)} - połączenie przez linie telefoniczne o wysokiej przepustowości i dostępności. Często dostępne w formie ADSL, gdzie prędkość pobierania jest większa od prędkości przesyłu.
+	\item \italic{Sieci komórkowej} - połączenie bezprzewodowe uzależnione od dostępności sygnału sieci komórkowej.
+	\item \italic{Satelity} - połączenie bezprzewodowe poprzez sygnał satelitarny, wymagające bezpośredniej widoczności z satelitą.
+	\item \italic{Łącze telefoniczne dial-up} - tanie połączenie poprzez linie telefoniczną i modem o niskiej przepustowości.
+\end{itemize}
+\vspace{5mm}
+
+\h{Połączenie internetowe dla dużych organizacji:}
+Ze względu na większe wymagania co do przepustowości i dostępności pasma duże organizacje mają swoje własne metody połączenia z internetem:
+\begin{itemize}
+	\item \italic{Dedykowane łącza dzierżawione} - wynajmowane przez organizacje dedykowane obwody zapewniające połączenie między biurami.
+	\item \italic{Metro Ethernet} - połączenie przewodowe rozszerzające technologię dostępu LAN na sieci WAN.
+	\item \italic{Biznes DSL} - połączenie poprzez linie telefoniczne o wysokiej wydajności i dostępności o równych prędkościach przesyłu i pobierania (SDSL). 
+	\item \italic{Satelita} - połącznie bezprzewodowe poprzez satelitę.
+\end{itemize}
+\vspace{5mm}
+
+\h{Sieci konwergentne:}
+Sieci będące w stanie transportować wiele usług (dane, wideo, audio itd) poprzez jedną i ta samą sieć. Każda z tych przesyłanych usług podlega pod te same reguły, standardy i umowy. \\
+
+\h{Switch:}
+
 	
 \end{document}
