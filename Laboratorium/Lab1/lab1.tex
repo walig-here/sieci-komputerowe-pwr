@@ -222,7 +222,74 @@ Ze względu na większe wymagania co do przepustowości i dostępności pasma du
 \h{Sieci konwergentne:}
 Sieci będące w stanie transportować wiele usług (dane, wideo, audio itd) poprzez jedną i ta samą sieć. Każda z tych przesyłanych usług podlega pod te same reguły, standardy i umowy. \\
 
-\h{Switch:}
+\h{Aspekty niezawodności sieci:}
+Nowoczesne sieci są projektowane z zachowaniem odpowiednich standardów, które zapewniają jej poprawne i wydajne funkcjonowanie. Architekci projektując sieć skupiają swoją uwagę na czterech askeptach:
+\begin{itemize}
+	\item tolerancji błędu
+	\item skalowalności
+	\item jakości usług(QoS, Quality of Service)
+	\item bezpieczeństwie
+\end{itemize}
+\vspace{5mm}
 
+\h{Tolerancja błędu:}
+Sieci powinny być odporne na awarie, czyli w stworzone w sposób ograniczający liczbę urządzeń, które zostaną dotknięte niedogodnościami w wypadku awarii. Muszą być zbudowane tak, aby w wypadku wystąpienia awarii istniał łatwy sposób na odzyskanie sprawności sieci. W tym celu korzystają one z tzw. ścieżek nadmiarowych, które mogą zastąpić uszkodzone ścieżki (sieci z nadmiarowością).\\
+
+\noindent
+Routery są w stanie wykorzystywać nadmiarowość wykorzystując przełączanie pakietów. Każda wiadomość w sieci jest dzielona na części zwane pakietami, które oprócz właściwych danych zawierają dodatkowe informacje w swoim nagłówku. Następnie każdy pakiet jest osobno przesyłany do odbiorcy końcowego. Router przy każdym kolejnym pakiecie dynamicznie dobiera ścieżkę. Oznacza to, że każdy pakiet danej wiadomości może zostać de facto przesłany inną ścieżką.\\
+
+\h{Skalowalność:}
+Sieć musi być skalowalna, aby w prosty sposób móc obsługiwać coraz to nowych użytkowników i aplikacje. Skalowalność zakłada, że takie rozszerzenie odbywa się bez uszczerbku na wydajności już istniejących w sieci usług (inni użytkownicy nie mogą być poszkodowani tym, że podłączyliśmy nowe urządzenie). Skalowalność można osiągnąć przestrzegając przyjętych ogólnie standardów i protokołów.\\
+
+\h{Jakość usług:}
+Nowoczesne sieci są konwergentne, są w stanie przysyłać wiele różnych typów informacji. W wypadku przepełnienia łącza w celu zapewnienia dobrej jakości usług sieciowych routery są w stanie priorytetyzować transport jednego typu danych nad drugim (np. przesył głosu ma priorytet nad przesyłem danych, bo niestabilna transmisja w połączeniu głosowym jest bardziej uciążliwa niż w wypadku chociażby otwierania stron WWW). Takie priorytety są ustalane w polityce jakości usług.\\
+
+\h{Bezpieczeństwo sieci:}
+Sieci powinny być także bezpieczne. Administratorzy w tym aspekcie muszą zwrócić uwagę na bezpieczeństwo infrastruktury sieciowej oraz bezpieczeństwo informacji.\\
+
+\noindent
+Zabezpieczenie infrastruktury to fizyczne zabezpieczenie urządzeń zapewniających dostęp do sieci oraz zapobieganie zapobieganie do nieautoryzowanego dostępu do ich oprogramowania zarządzającego.\\
+
+\noindent
+Zabezpieczenie informacji zawartych w przesyłanych pakietach wymaga spełnienia trzech wymagań:
+\begin{itemize}
+	\item \italic{Poufności} - zapewnienie, że dane nie zostaną odczytane ani udostępnione osobom nieupoważnionym
+	\item \italic{Integralności} - zapewnienie, że dane nie ulegną zmianie podczas przesyłu
+	\item \italic{Dostępności} - zapewnienie terminowego i niezawodnego dostępu do danych uprawnionym użytkownikom
+\end{itemize}
+\vspace{5mm}
+
+\h{Zagrożenia bezpieczeństwa:}
+Obecnie wiele zagrożeń dla sieci pochodzi  z Internetu. Są to zagrożenia zewnętrzne. (wektor zewnętrzny). Zaliczamy do nich:
+\begin{itemize}
+	\item \italic{Wirusy, robaki, konie trojańskie} - uruchamiające złośliwe oprogramowanie na zaatakowanym urządzeniu
+	\item \italic{Spyware i adware} - potajemnie zbierające informacje oprogramowanie
+	\item \italic{Ataki zero-day} - pojawiające się od razu po wykryciu podatności na atak
+	\item \italic{Ataki aktora zagrożeń} - działania złośliwej osoby
+	\item \italic{Odmowa usługi} - ataki mające na celu zmniejszenie wydajności działania aplikacji/sprzętu lub jej zatrzymanie
+	\item \italic{Przechwytywanie i kradzież danych}
+	\item \italic{Kradzież tożsamości} - atak polegający na kradzieży danych logowania
+\end{itemize}
+\vspace{5mm}
+
+\noindent
+Istnieją również zagrożenia wewnętrzne, czyli pochodzące od urządzeń partycypujących w danej sieci. Mogą one być spowodowane zgubieniem urządzenia, celowym działaniem, przypadkowymi błędami użytkowników.\\
+
+\h{Elementy bezpieczeństwa sieci domowej:}
+Sieci domowe są chronione na bardzo podstawowym poziomie. Zabezpieczenia są wdrażane na urządzeniach końcowych oraz w punkcie łączenia sieci domowej z internetem. Często takie zabezpieczenia zapewnia sam dostawca usług internetowych. Są to chociażby:
+\begin{itemize}
+	\item \italic{Oprogramowanie antywirusowe i antyszpiegowskie} - chroniące urządzenie końcowe
+	\item \italic{Zapory filtrujące} - filtrujące nieautoryzowany dostęp do sieci oraz ruch z sieci do internetu. Zapory filtrujące mogą wystąpić na urządzeniach końcowych jak i na routerach. 
+\end{itemize}
+\vspace{5mm}
+
+\h{Elementy bezpieczeństwa sieci korporacyjnych:}
+Sieci dużych firm wymagają bardziej dogłębnego monitorowania oraz kontrolowania ruchu. Ich systemy bezpieczeństwa składają się zazwyczaj z wielu współpracujących ze sobą komponentów. Takie sieci oczywiście także używają zapór filtrujących i oprogramowań antywirusowych ale korzystają również z:
+\begin{itemize}
+	\item \italic{Dedykowane systemy zapór} - systemy zapewniające bardziej zaawansowane funkcje zapory bardziej szczegółowo i wydajniej filtrujące ruch.
+	\item \italic{Listy kontroli dostępu (ACL)} - dodatkowo filtrujące dostęp i przekazywanie ruchu na bazie adresów IP i aplikacji
+	\item \italic{Systemy przeciwdziałania atakom (IPS)} - szybko identyfikujące ataki zero-day
+	\item \italic{Wirtualne sieci prywatne (VPN)} - zapewniające bezpieczny dostęp do organizacji dla pracowników zdalnych 
+\end{itemize}
 	
 \end{document}

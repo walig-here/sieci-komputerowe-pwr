@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.26 32-bit) (preloaded format=pdflatex 2022.11.7)  5 MAR 2023 16:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.26 32-bit) (preloaded format=pdflatex 2022.11.7)  8 MAR 2023 00:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -374,30 +374,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--200
  []
 
 [7 <./fig6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
 
  []
 
-[8] [9] (lab1.aux) ) 
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 235--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--246
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
+
+ []
+
+[11] (lab1.aux) ) 
 Here is how much of TeX's memory you used:
  3309 strings out of 475380
  52683 string characters out of 2776772
- 397529 words of memory out of 3000000
+ 397531 words of memory out of 3000000
  24678 multiletter control sequences out of 15000+600000
  472422 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,7n,76p,485b,241s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\Dawid\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\tcrm1200.pk>{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/e
-nc/dvips/pl/plit.enc}{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/enc/dv
-ips/pl/plrm.enc}<C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/pl/plbx12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/pl/plr12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/pl/plr17.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-pl/plti12.pfb>
-Output written on lab1.pdf (9 pages, 207653 bytes).
+ 68i,7n,76p,524b,241s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Dawid\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\tcrm1200.pk>{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/enc/
+dvips/pl/plit.enc}{C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/enc/dvips
+/pl/plrm.enc}<C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/p
+l/plbx12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/p
+l/plr12.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl
+/plr17.pfb><C:/Users/Dawid/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/
+plti12.pfb>
+Output written on lab1.pdf (11 pages, 216444 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
