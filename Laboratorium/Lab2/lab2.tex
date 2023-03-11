@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\newcommand{\h}[1]{\noindent \bf #1 \rm \\ \noindent}
+\newcommand{\italic}[1]{\it #1 \rm}
+
+\begin{document}
+
+\begin{center}
+	\LARGE
+	Sieci Komputerowe \\
+	\large
+	LABORATORIUM 2 
+\end{center}
+\vspace{1cm}
+
+\h{Struktura wiadomości ICMP:}
+Wiadomość ICMP składa się nie tylko z przesyłanych danych ale również dodatkowych informacji nazywanych nagłówkiem. Łącznie jest to 8 dodatkowych bajtów.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|ccc|}
+		\hline
+		\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Typ\\ 1B\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Kod\\ 1B\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Suma kontrolna\\ 2B\end{tabular}  \\ \hline
+		\multicolumn{2}{|c|}{\begin{tabular}[c]{@{}c@{}}Identyfikator\\ 2B\end{tabular}}                                                               & \begin{tabular}[c]{@{}c@{}}Nr. sekwencyjny\\ 2B\end{tabular} \\ \hline
+		\multicolumn{3}{|c|}{\begin{tabular}[c]{@{}c@{}}Dane\\ n * 4B\end{tabular}}                                                                                                                                    \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item \italic{Type} - typ wiadomości
+	\item \italic{Kod} - szczegółowy rodzaj wiadomości
+	\item \italic{Suma kontrolna} - suma kontrolna nagłówka i danych
+	\item \italic{Identyfikator} - dodatkowe informacje do identyfikacji sesji. Młodszy bit przedstawia go w notacji big endian a młodszy w little endian
+	\item \italic{Nr. sekwencyjny} - dodatkowe informacje do identyfikacji kolejności zapytań w ramach sesji. Starszy bit zawiera dane w notacji big endian a młodszy little endian.
+\end{itemize}
+\vspace{5mm}
+
+\h{Narzut na wiadomość:}
+Ilość dodatkowych bajtów wynikająca z danych zawartych w protokołach sieciowych, w które "opakowana" jest wiadomość. Inaczej nazywane bitami służbowymi.\\
+
+\h{Time to live (TTL):}
+Ilość skoków między routerami, jakie może wykonać pakiet, zanim zostanie usunięty z sieci. Każdy router zmniejsza TTL wiadomości o 1, aż do osiągnięcia przez nie wartości 0. W takim wypadku pakiet jest usuwany przez router.
+
+\end{document}
