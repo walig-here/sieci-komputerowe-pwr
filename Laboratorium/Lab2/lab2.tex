@@ -6,9 +6,28 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{listings}
 
 \newcommand{\h}[1]{\noindent \bf #1 \rm \\ \noindent}
 \newcommand{\italic}[1]{\it #1 \rm}
+
+\definecolor{winbackground}{HTML}{000000}
+\definecolor{wintext}{HTML}{FFFFFF}
+
+\lstset{
+	language=sh,
+	backgroundcolor=\color{winbackground},
+	basicstyle=\ttfamily\color{wintext},
+	keywordstyle=\color{white}\bfseries,
+	commentstyle=\color{white},
+	stringstyle=\color{red},
+	frame=single,
+	showstringspaces=false,
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4,
+}
 
 \begin{document}
 
@@ -45,6 +64,276 @@ Wiadomość ICMP składa się nie tylko z przesyłanych danych ale również dod
 Ilość dodatkowych bajtów wynikająca z danych zawartych w protokołach sieciowych, w które "opakowana" jest wiadomość. Inaczej nazywane bitami służbowymi.\\
 
 \h{Time to live (TTL):}
-Ilość skoków między routerami, jakie może wykonać pakiet, zanim zostanie usunięty z sieci. Każdy router zmniejsza TTL wiadomości o 1, aż do osiągnięcia przez nie wartości 0. W takim wypadku pakiet jest usuwany przez router.
+Ilość skoków między routerami, jakie może wykonać pakiet, zanim zostanie usunięty z sieci. Każdy router zmniejsza TTL wiadomości o 1, aż do osiągnięcia przez nie wartości 0. W takim wypadku pakiet jest usuwany przez router.\\
+
+\h{Metody dostępu do narzędzi konfiguracyjnych urządzeń sieciowych:}
+Istnieją cztery metody dostępu do konsolowego interfejsu konfiguracyjnego urządzenia sieciowego:
+\begin{itemize}
+	\item \italic{Konsola} - pierwszą metodą dostępu, pozwalającą na konfigurację urządzenia sieciowego jest konsola. Łączymy się z urządzeniem za pomocą kabla wpiętego do specjalnego portu konsoli.
+	
+	\item \italic{SSH} - druga metoda wykorzystuje bezpieczne połączenie z interfejsem konsolowym za pomocą SSH (Secure Shell).	Tego typu połączenie wymaga połączenia urządzenia z siecią oraz odpowiedniej konfiguracji.
+	
+	\item \italic{Telenet} - trzecia metoda to połączenie za pomocą Telenet. Nie jest ono tak bezpieczne jak SSH. Wszystkie zapytania są w nim wysyłane w formie surowego tekstu przez sieć. Nie są szyfrowane.
+	
+	\item \italic{AUX} - czwarta metoda zakładająca wykorzystanie portu pomocniczego AUX. Używana jest ona w przypadku niektórych routerów. Tego typu połączenie jest wykonywane za pomocą sieci telefonicznej. Nie wymaga ona połączenia z siecią ani wcześniejszej konfiguracji.
+\end{itemize}
+\vspace{5mm}
+
+\noindent
+Każda z tych metoda wymaga zainstalowania oprogramowania emulującego terminal (np. PuTTY).\\
+
+\h{Tryby poleceń w CLI:}
+Urządzenia Cisco mają dwa podstawowe tryby poleceń, które w interfejsie konsolowym rozróżniamy za pomocą znaku zachęty.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tryb}} & \multicolumn{1}{c|}{\textbf{Opis}}                                                                                              & \textbf{Znak zachęty} \\ \hline
+		Użytkownika                         & \begin{tabular}[c]{@{}l@{}}Pozwala na monitorowanie sieci.\\ Nie pozwala na wykonywanie \\ zaawansowanych poleceń.\end{tabular} & \textgreater{}        \\ \hline
+		Uprzywilejowany                     & Daje dostęp do wszystkich poleceń.                                                                                              & \#                    \\ \hline
+	\end{tabular}
+\end{table}
+\vspace{5mm}
+
+\newpage
+\h{Tryby konfiguracji i tryby podrzędne:}
+W celu skonfigurowania urządzenia należy przejść do trybu konfiguracji globalnej. Polecenia wykonywane w tym trybie wpływają na całe urządzenie. Znak zachęty tego trybu to:
+\begin{center}
+	\it \large
+	[nazwa urządzenia](config)\#
+\end{center}
+\vspace{5mm}
+
+\noindent
+W trybie konfiguracji globalnej możemy aktywować bardziej szczegółowe tryby konfiguracji:
+\begin{itemize}
+	\item \italic{Linii} - konfiguracja połączeń do urządzenia takich jak SSH, Telenet itd. Znak zachęty to: 
+	\begin{center}
+		\it \large
+		[nazwa urządzenia](config-line)\#
+	\end{center}
+
+	\item \italic{Interfejsu} - konfiguracja portu przełącznika lub interfejsu sieciowego routera. Znak zachęty to: 
+	\begin{center}
+		\it \large
+		[nazwa urządzenia](config-if)\#
+	\end{center}
+\end{itemize}
+\vspace{5mm}
+
+\h{Polecenie "enable":}
+Polecenie trybu użytkownika pozwalające na przejście do trybu uprzywilejowanego:
+\begin{lstlisting}
+Switch> enable
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "disable":}
+Polecenie trybu uprzywilejowanego pozwalająca na powrót do trybu użytkownika.
+\begin{lstlisting}
+Switch# disable
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "configure terminal":}
+Polecenie trybu uprzywilejowanego, pozwalająca na przejście do trybu konfiguracji globalnej.
+\begin{lstlisting}
+Switch# configure terminal
+\end{lstlisting}
+\vspace{5mm}
+
+\newpage
+\h{Polecenie "exit":}
+Polecenie pozwalające na przejście "o poziom wyżej" w hierarchii trybów. Przykładowo z podtrybu konfiguracji linii do trybu konfiguracji globalnej.
+\begin{lstlisting}
+Switch# exit
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "end":}
+Polecenie pozwalające na przejście z dowolnego trybu podrzędnego bezpośrednio do trybu uprzywilejowanego. Może być zastąpione skrótem klawiszowym CTRL+Z.
+Polecenie trybu uprzywilejowanego, pozwalająca na przejście do trybu konfiguracji globalnej.
+\begin{lstlisting}
+Switch(config-line)# end
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "line":}
+Polecenie pozwalające przejść do podtrybu konfiguracji linii. Polecenie wymaga parametrów takich jak typ linii oraz numer. 
+\begin{lstlisting}
+Switch(config)# line <typ linii> <numer>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "interface":}
+Polecenie pozwalające przejść do podtrybu konfiguracji interfejsu.Polecenie wymaga parametrów takich jak typ interfejsu oraz numer.
+\begin{lstlisting}
+Switch(config)# interface <typ interfejsu> <numer>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "?":}
+Gdy wpisane samotnie wyświetla wszystkie polecenia dostępne w aktualnie aktywnym trybie.
+\begin{lstlisting}
+Switch>?
+\end{lstlisting}
+\vspace{5mm}
+
+\noindent
+Gdy wpiszemy część komendy a następnie "?" to interfejs konsolowy poda nam wszystkie komendy, o jakie może nam chodzić. Pozwala to na przypomnienie sobie nazw komend.
+\begin{lstlisting}
+Switch# pi?
+\end{lstlisting}
+\vspace{5mm}
+
+\noindent
+Gdy wypiszemu "?" po nazwie komendy, to otrzymamy instrukcje jej użycia.
+\begin{lstlisting}
+Switch# ping ?
+\end{lstlisting}
+\vspace{5mm}
+
+\newpage
+\h{Skróty klawiszowe:}
+Interfejs konsolowy zawiera wiele skrótów klawiszowych, które pozwalają na łatwiejszą nawigację i użytkowanie.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Skrót} & \multicolumn{1}{c|}{\textbf{Opis}}                                                                \\ \hline
+		TAB            & Uzupełnia nazwę polecenia                                                                         \\ \hline
+		CTRL+SHIFT+6   & \begin{tabular}[c]{@{}l@{}}Zatrzymuje wyszukiwanie DNS, ping i \\ tracert.\end{tabular}           \\ \hline
+		CTRL+Z         & \begin{tabular}[c]{@{}l@{}}Wraca z trybu konfiguracji do trybu\\ urprzywilejowanego.\end{tabular} \\ \hline
+	\end{tabular}
+\end{table}
+\vspace{5mm}
+
+\h{Polecenie "hostname":}
+Polecenie pozwalające na ustalenie nazwy urządzenia. Jest to polecenie trybu konfiguracji globalnej. Wymaga podania nowej nazwy urządzenia jako argumentu.
+\begin{lstlisting}
+Switch(config)#hostname <nowa nazwa>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "no hostname":}
+Polecenie pozwalające na przywrócenie domyślnej nazwy urządzenia. Jest to polecenie trybu konfiguracji globalnej.
+\begin{lstlisting}
+Switch(config)#no hostname
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "password":}
+Polecenie trybu konfiguracji linii. Pozwala na ustalenie hasła dostępu do trybu użytkownika w trakcie połączenia na aktywnej linii.
+\begin{lstlisting}
+Switch(confit-line)#password <haslo>
+\end{lstlisting}
+\vspace{5mm}
+
+\noindent
+Wszystkie ustalone w ten sposób hasła są przechowywane pliku konfiguracyjnym \it running-config\rm.\\
+
+\h{Polecenie "login":}
+Polecenie trybu konfiguracji linii. Pozwala na włączenie wymogu wpisania hasła w wypadku próby aktywacji trybu użytkownika na aktywnej linii.
+\begin{lstlisting}
+	Switch(confit-line)#login
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "enable secret":}
+Polecenie trybu konfiguracji globalnej. Pozwala na ustalenie hasła niezbędnego do aktywacji trybu uprzywilejowanego.
+\begin{lstlisting}
+Switch(confit)#enable secret <haslo>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Szyfrowanie haseł:}
+Ustalane za pomocą komendy \it password \rm hasła są zapisywane na urządzeniu za pomocą zwykłego testu. Aby zaszyfrować hasła zapisane na urządzeniu należy użyć polecenia \it service password-encryption\rm. Jest to polecenie konfiguracji globalnej.
+\begin{lstlisting}
+Switch(config)#service password-encryption
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "show":}
+Polecenie trybu uprzywilejowanego. Pozwala na wyświetlenie wskazanego elementu.
+\begin{lstlisting}
+Switch#show <element>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "banner motd":}
+Polecenie trybu konfiguracji globalnej. Pozwala na ustalenie wiadomości wyświetlanej przy próbie zalogowania się do konsoli urządzenia.
+\begin{lstlisting}
+Switch(config)#banner motd #<wiadomosc>#
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Plik running-config:}
+Plik zawierający aktualnie zapisaną w pamięci RAM konfigurację urządzenia. Zostanie on zresetowany, gdy urządzenie zostanie odłączone od zasilania. To właśnie do running-config zapisują się wprowadzone za pośrednictwem konsoli zmiany.\\
+
+\h{Plik startup-config:}
+Plik zawierający zapisaną w pamięci NVRAM konfigurację urządzenia. Zostanie on w nienaruszonym stanie przy odłączeniu urządzenia od zasilania.\\
+
+\newpage
+\h{Zapisanie aktualnej konfiguracji:}
+Aby zapisać aktualną konfigurację zawartą w running-config do pliku startup-config należy użyć polecenia \it copy\rm. Można go użyć w trybie uprzywilejowanym.
+\begin{lstlisting}
+Switch#copy running-config startup-config
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "reload":}
+Polecenie trybu uprzywilejowanego. Pozwala zresetować konfigurację do stanu zapisanego w pliku startup-config. Minusem tego polecenia jest to, ze powoduje ono chwilowe przejście urządzenia w tryb offline.
+\begin{lstlisting}
+Switch#reload
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Usunięcie zapisanej konfiguracji:}
+Polecenie \it erase startup-config \rm pozwala na pełne wyczyszczenie zapisanej w pliku startup-config konfiguracji urządzenia.
+\begin{lstlisting}
+Switch#erase startup-config
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Maska podsieci:}
+Maska podsieci IPv4 to 32-bitowa wartość, która odróżnia część sieciową adresu od części hosta. Maska w połączeniu z właściwym adresem IP określa do której podsieci należy urządzenie.\\
+
+\h{Adres bramy domyślnej:}
+Adres IP routera, którego urządzenie będzie używało, aby uzyskać dostęp do sieci zadanych (także Internetu).\\
+
+\h{Protokół DHCP:}
+Protokół automatycznego przypisania i konfiguracji adresów IPv4. Jedna z najpowszechniej używanych w sieci technologii.\\
+
+\h{Interfejs wirtualny SVI:}
+Interfejs obecny w oprogramowaniu przełącznika, który pozwala na zdalne zarządzanie urządzenia przy użyciu protokołów IP.\\
+
+\newpage
+\h{Polecenie "ip address":}
+Polecenie używane do skonfigurowania adresu IP oraz maski podsieci urządzenia na porcie SVI. Jest to polecenie trybu konfiguracji interfejsu \it vlan 1\rm.
+\begin{lstlisting}
+Switch(config-if)#ip address <adres> <maska>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "ip defaulf-gateway":}
+Polecenie trybu konfiguracji interfejsu. Pozwala na ustalenie bramy domyślnej dla danego urządzenia.
+\begin{lstlisting}
+Switch(config-if)#ip default-gateway <adres>
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Polecenie "no shutdown":}
+Polecenie trybu konfiguracji interfejsu. Pozwala ona na aktywacje wirtualnego interfejsu (np. SVI).
+\begin{lstlisting}
+	Switch(config-if)#no shutdown
+\end{lstlisting}
+\vspace{5mm}
+
+\h{Wyświetlanie danych o wszystkich portach:}
+Poleceniem służącym do wyświetlenia wszystkich danych o portach danego urządzenia jest \it show ip interface brief\rm. Jest to polecenie trybu uprzywilejowanego.
+\begin{lstlisting}
+Switch#show ip interface brief
+\end{lstlisting}
+\vspace{5mm}
 
 \end{document}
